@@ -44,9 +44,9 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.server);
             this.groupBox1.Font = new System.Drawing.Font("나눔바른고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox1.Location = new System.Drawing.Point(12, 107);
+            this.groupBox1.Location = new System.Drawing.Point(12, 79);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(376, 149);
+            this.groupBox1.Size = new System.Drawing.Size(376, 174);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "서버";
@@ -54,9 +54,9 @@
             // server
             // 
             this.server.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.server.Location = new System.Drawing.Point(111, 84);
+            this.server.Location = new System.Drawing.Point(111, 98);
             this.server.Name = "server";
-            this.server.Size = new System.Drawing.Size(151, 45);
+            this.server.Size = new System.Drawing.Size(151, 52);
             this.server.TabIndex = 3;
             this.server.Text = "server";
             this.server.UseVisualStyleBackColor = true;
@@ -66,9 +66,9 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.client);
             this.groupBox2.Font = new System.Drawing.Font("나눔바른고딕", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.groupBox2.Location = new System.Drawing.Point(12, 283);
+            this.groupBox2.Location = new System.Drawing.Point(12, 284);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(376, 149);
+            this.groupBox2.Size = new System.Drawing.Size(376, 174);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "클라이언트";
@@ -76,9 +76,9 @@
             // client
             // 
             this.client.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.client.Location = new System.Drawing.Point(111, 84);
+            this.client.Location = new System.Drawing.Point(111, 98);
             this.client.Name = "client";
-            this.client.Size = new System.Drawing.Size(151, 45);
+            this.client.Size = new System.Drawing.Size(151, 52);
             this.client.TabIndex = 3;
             this.client.Text = "client";
             this.client.UseVisualStyleBackColor = true;
@@ -87,7 +87,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("나눔바른고딕", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label1.Location = new System.Drawing.Point(75, 46);
+            this.label1.Location = new System.Drawing.Point(75, 31);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(253, 24);
             this.label1.TabIndex = 5;
@@ -98,7 +98,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label2.Location = new System.Drawing.Point(119, 40);
+            this.label2.Location = new System.Drawing.Point(119, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(130, 19);
             this.label2.TabIndex = 6;
@@ -109,7 +109,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.label3.Location = new System.Drawing.Point(119, 40);
+            this.label3.Location = new System.Drawing.Point(119, 47);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(144, 19);
             this.label3.TabIndex = 7;
@@ -118,12 +118,13 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(400, 468);
+            this.ClientSize = new System.Drawing.Size(400, 492);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Font = new System.Drawing.Font("나눔바른고딕", 8.999999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "Form1";
