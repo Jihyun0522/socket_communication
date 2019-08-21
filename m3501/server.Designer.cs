@@ -159,10 +159,12 @@
             // 
             // server_messageBox
             // 
+            this.server_messageBox.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.server_messageBox.Font = new System.Drawing.Font("나눔바른고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.server_messageBox.Location = new System.Drawing.Point(12, 340);
             this.server_messageBox.Multiline = true;
             this.server_messageBox.Name = "server_messageBox";
+            this.server_messageBox.ReadOnly = true;
             this.server_messageBox.Size = new System.Drawing.Size(423, 346);
             this.server_messageBox.TabIndex = 5;
             // 
