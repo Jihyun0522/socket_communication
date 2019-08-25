@@ -6,14 +6,23 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Net;
+using System.Net.Sockets;
+using System.Threading;
 
 namespace m3501
 {
     public partial class client : Form
     {
+        TcpClient tcpClient = new TcpClient(); // socket
+        NetworkStream stream = default(NetworkStream);
+        string message = string.Empty;
+
         public client()
         {
             InitializeComponent();
         }
+
+        
     }
 }
