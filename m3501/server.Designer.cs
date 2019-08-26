@@ -65,7 +65,7 @@
             this.server_port.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.server_port.Location = new System.Drawing.Point(104, 80);
             this.server_port.Name = "server_port";
-            this.server_port.Size = new System.Drawing.Size(288, 26);
+            this.server_port.Size = new System.Drawing.Size(288, 30);
             this.server_port.TabIndex = 3;
             this.server_port.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Server_port_KeyPress);
             // 
@@ -75,7 +75,7 @@
             this.label2.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(25, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 19);
+            this.label2.Size = new System.Drawing.Size(60, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "PORT";
             // 
@@ -84,7 +84,7 @@
             this.server_ip.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.server_ip.Location = new System.Drawing.Point(104, 37);
             this.server_ip.Name = "server_ip";
-            this.server_ip.Size = new System.Drawing.Size(288, 26);
+            this.server_ip.Size = new System.Drawing.Size(288, 30);
             this.server_ip.TabIndex = 1;
             // 
             // label1
@@ -93,7 +93,7 @@
             this.label1.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(53, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 19);
+            this.label1.Size = new System.Drawing.Size(27, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "IP";
             // 
@@ -148,8 +148,9 @@
             this.server_name.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.server_name.Location = new System.Drawing.Point(93, 41);
             this.server_name.Name = "server_name";
-            this.server_name.Size = new System.Drawing.Size(228, 26);
+            this.server_name.Size = new System.Drawing.Size(228, 30);
             this.server_name.TabIndex = 1;
+            this.server_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Server_name_KeyPress);
             // 
             // label4
             // 
@@ -157,7 +158,7 @@
             this.label4.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(38, 44);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 19);
+            this.label4.Size = new System.Drawing.Size(46, 23);
             this.label4.TabIndex = 0;
             this.label4.Text = "이름";
             // 
@@ -178,8 +179,9 @@
             this.server_message.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.server_message.Location = new System.Drawing.Point(12, 710);
             this.server_message.Name = "server_message";
-            this.server_message.Size = new System.Drawing.Size(335, 25);
+            this.server_message.Size = new System.Drawing.Size(335, 29);
             this.server_message.TabIndex = 6;
+            this.server_message.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Server_message_KeyPress);
             // 
             // server_send
             // 
@@ -194,7 +196,7 @@
             // 
             // server
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 754);
             this.Controls.Add(this.server_send);

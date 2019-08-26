@@ -18,7 +18,7 @@ namespace m3501
         TcpClient tcpClient = null; // socket
         static int counter = 0; // 접속한 사용자 수
         string date; // 날짜
-        int port; // port 번호
+        string name;
         public Dictionary<TcpClient, string> clientList = new Dictionary<TcpClient, string>(); // 각 client마다 리스트 추가
 
         public server()
@@ -33,13 +33,14 @@ namespace m3501
             t.IsBackground = true;
             t.Start();
             server_name.Text = "server";
+            name = "server";
         }
 
         private void InitSocket()
         {
-            IPAddress ip = IPAddress.Parse("216.58.216.174");
-            port = Convert.ToInt32(server_port.Text);
-            tcp = new TcpListener(IPAddress.Any, port); // 서버 접속 IP, 포트
+            System.Net.IPAddress ip = System.Net.IPAddress.Parse(server_ip.Text.ToString()); //127.0.0.1
+            int port = Convert.ToInt32(server_port.Text);
+            tcp = new TcpListener(ip, port); // 서버 접속 IP, 포트
             tcpClient = default(TcpClient); // 소켓 설정
             tcp.Start(); // 서버 시작
             DisplayText(">> Server Started");
@@ -169,7 +170,29 @@ namespace m3501
         {
             if(server_name.Text != null)
             {
-                SendMessageAll(server_ip.Text + "님의 이름이 " + server_name + "으로 변경되었습니다.", server_name.Text, false);
+                SendMessageAll(name + "님의 이름이 " + server_name.Text + "으로 변경되었습니다.", server_name.Text, false);
+                DisplayText(name + "님의 이름이 " + server_name.Text + "으로 변경되었습니다.");
+                name = server_name.Text;
+            }
+        }
+
+        private void Server_name_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)  //엔터 키를 누를 때
+            {
+                SendMessageAll(name + "님의 이름이 " + server_name.Text + "으로 변경되었습니다.", server_name.Text, false);
+                DisplayText(name + "님의 이름이 " + server_name.Text + "으로 변경되었습니다.");
+                name = server_name.Text;
+            }
+        }
+
+        private void Server_message_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)  //엔터 키를 누를 때
+            {
+                DisplayText(server_name.Text + ">> " + server_message.Text);
+                SendMessageAll(server_message.Text, server_name.Text, true);
+                server_message.Clear();
             }
         }
     }
