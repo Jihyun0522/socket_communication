@@ -19,13 +19,13 @@ namespace m3501
         private void Server_Click(object sender, EventArgs e)
         {
             server server = new server();
-            server.ShowDialog();
+            server.Show();
         }
 
         private void Client_Click(object sender, EventArgs e)
         {
             client client = new client();
-            client.ShowDialog();
+            client.Show();
         }
     }
 }
