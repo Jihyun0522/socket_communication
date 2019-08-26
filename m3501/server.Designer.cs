@@ -105,6 +105,7 @@
             this.create.TabIndex = 1;
             this.create.Text = "생성";
             this.create.UseVisualStyleBackColor = true;
+            this.create.Click += new System.EventHandler(this.Create_Click);
             // 
             // stop
             // 
@@ -186,6 +187,7 @@
             this.server_send.TabIndex = 6;
             this.server_send.Text = "전송";
             this.server_send.UseVisualStyleBackColor = true;
+            this.server_send.Click += new System.EventHandler(this.Server_send_Click);
             // 
             // server
             // 

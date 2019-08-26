@@ -23,6 +23,10 @@ namespace m3501
         public server()
         {
             InitializeComponent();
+        }
+
+        private void Create_Click(object sender, EventArgs e)
+        {
             //Thread 생성
             Thread t = new Thread(InitSocket);
             t.IsBackground = true;
@@ -134,6 +138,14 @@ namespace m3501
             {
                 server_messageBox.AppendText(text + Environment.NewLine);
             }
+        }
+
+        private void Server_send_Click(object sender, EventArgs e)
+        {
+            string serverName = "server";
+            DisplayText(serverName + ">> " + server_message.Text);
+            SendMessageAll(server_message.Text, serverName, true);
+            server_message.Clear();
         }
     }
 }
