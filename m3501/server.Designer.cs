@@ -67,6 +67,7 @@
             this.server_port.Name = "server_port";
             this.server_port.Size = new System.Drawing.Size(288, 26);
             this.server_port.TabIndex = 3;
+            this.server_port.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Server_port_KeyPress);
             // 
             // label2
             // 
@@ -116,6 +117,7 @@
             this.stop.TabIndex = 2;
             this.stop.Text = "중단";
             this.stop.UseVisualStyleBackColor = true;
+            this.stop.Click += new System.EventHandler(this.Stop_Click);
             // 
             // groupBox2
             // 
@@ -139,6 +141,7 @@
             this.change.TabIndex = 5;
             this.change.Text = "변경";
             this.change.UseVisualStyleBackColor = true;
+            this.change.Click += new System.EventHandler(this.Change_Click);
             // 
             // server_name
             // 

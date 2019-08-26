@@ -23,6 +23,25 @@ namespace m3501
             InitializeComponent();
         }
 
-        
+        private void Client_port_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Join_Click(object sender, EventArgs e)
+        {
+            /*try
+            {
+                tcpClient.Connect();
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show("서버가 실행중이 아닙니다.", "연결 실패!");
+                Application.Exit();
+            }*/
+        }
     }
 }

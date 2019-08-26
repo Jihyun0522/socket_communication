@@ -158,6 +158,7 @@
             this.join.TabIndex = 8;
             this.join.Text = "참여";
             this.join.UseVisualStyleBackColor = true;
+            this.join.Click += new System.EventHandler(this.Join_Click);
             // 
             // groupBox1
             // 
@@ -180,6 +181,7 @@
             this.client_port.Name = "client_port";
             this.client_port.Size = new System.Drawing.Size(288, 26);
             this.client_port.TabIndex = 3;
+            this.client_port.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Client_port_KeyPress);
             // 
             // label2
             // 

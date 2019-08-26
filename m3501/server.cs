@@ -14,11 +14,12 @@ namespace m3501
 {
     public partial class server : Form
     {
-        TcpListener tcp = null; //서버
-        TcpClient tcpClient = null; //socket
-        static int counter = 0; //접속한 사용자 수
-        string date; //날짜
-        public Dictionary<TcpClient, string> clientList = new Dictionary<TcpClient, string>(); //각 client마다 리스트 추가
+        TcpListener tcp = null; // 서버
+        TcpClient tcpClient = null; // socket
+        static int counter = 0; // 접속한 사용자 수
+        string date; // 날짜
+        int port; // port 번호
+        public Dictionary<TcpClient, string> clientList = new Dictionary<TcpClient, string>(); // 각 client마다 리스트 추가
 
         public server()
         {
@@ -31,11 +32,14 @@ namespace m3501
             Thread t = new Thread(InitSocket);
             t.IsBackground = true;
             t.Start();
+            server_name.Text = "server";
         }
 
         private void InitSocket()
         {
-            tcp = new TcpListener(IPAddress.Any, 9999); // 서버 접속 IP, 포트
+            IPAddress ip = IPAddress.Parse("216.58.216.174");
+            port = Convert.ToInt32(server_port.Text);
+            tcp = new TcpListener(IPAddress.Any, port); // 서버 접속 IP, 포트
             tcpClient = default(TcpClient); // 소켓 설정
             tcp.Start(); // 서버 시작
             DisplayText(">> Server Started");
@@ -142,10 +146,31 @@ namespace m3501
 
         private void Server_send_Click(object sender, EventArgs e)
         {
-            string serverName = "server";
-            DisplayText(serverName + ">> " + server_message.Text);
-            SendMessageAll(server_message.Text, serverName, true);
+            DisplayText(server_name.Text + ">> " + server_message.Text);
+            SendMessageAll(server_message.Text, server_name.Text, true);
             server_message.Clear();
+        }
+
+        private void Stop_Click(object sender, EventArgs e)
+        {
+            /*tcpClient.Close(); // client 소켓 닫기
+            tcp.Stop(); // 서버 종료*/
+        }
+
+        private void Server_port_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back)))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void Change_Click(object sender, EventArgs e)
+        {
+            if(server_name.Text != null)
+            {
+                SendMessageAll(server_ip.Text + "님의 이름이 " + server_name + "으로 변경되었습니다.", server_name.Text, false);
+            }
         }
     }
 }
