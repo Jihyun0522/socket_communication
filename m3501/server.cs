@@ -14,10 +14,11 @@ namespace m3501
 {
     public partial class server : Form
     {
-        TcpListener tcp = null; // 서버
+        TcpListener tcp = null; // server
         TcpClient tcpClient = null; // socket
         static int counter = 0; // 접속한 사용자 수
-        string name = "server";
+        string name = "server"; // server name
+        string date; // 날짜
         public Dictionary<TcpClient, string> clientList = new Dictionary<TcpClient, string>(); // 각 client마다 리스트 추가
 
         public server()
@@ -49,7 +50,6 @@ namespace m3501
                 {
                     counter++; // Client 수 증가
                     tcpClient = tcp.AcceptTcpClient(); // client 소켓 접속 허용
-                    DisplayText(">> Accept connection from client");
 
                     NetworkStream stream = tcpClient.GetStream();
                     byte[] buffer = new byte[1024]; // 버퍼
@@ -59,6 +59,7 @@ namespace m3501
 
                     clientList.Add(tcpClient, userName); // cleint 리스트에 추가
 
+                    DisplayText(">> " + userName + "님이 입장하셨습니다.");
                     SendMessageAll(userName + "님이 입장하셨습니다.", "", false); // 모든 client에게 메세지 전송
 
                     HandleClient handleClient = new HandleClient(); // client 추가
@@ -95,8 +96,10 @@ namespace m3501
             }
             else
             {
-                string displayMessage = /*"From client - " + userName + " : " + */message;
-                DisplayText(displayMessage); // server 메세지 화면에 출력
+                string displayMessage = message;
+                date = DateTime.Now.ToString("yyyy.MM.dd. HH:mm:ss"); // 현재 날짜 받기
+
+                DisplayText("[ " + date + " ] " + displayMessage); // server 메세지 화면에 출력
                 SendMessageAll(message, userName, true); // 모든 client에게 전송
 
             }
@@ -106,6 +109,8 @@ namespace m3501
         {
             foreach (var pair in clientList)
             {
+                date = DateTime.Now.ToString("yyyy.MM.dd. HH:mm:ss"); // 현재 날짜 받기
+
                 TcpClient client = pair.Key as TcpClient;
                 NetworkStream stream = client.GetStream();
                 byte[] buffer = null;
@@ -115,7 +120,7 @@ namespace m3501
                     if (message.Equals("leave Chat"))
                         buffer = Encoding.UTF8.GetBytes(userName + "님이 대화방을 나갔습니다.");
                     else
-                        buffer = Encoding.UTF8.GetBytes(message);
+                        buffer = Encoding.UTF8.GetBytes("[ " + date + " ] " + message);
                 }
                 else
                 {
@@ -144,9 +149,23 @@ namespace m3501
 
         private void Server_send_Click(object sender, EventArgs e)
         {
-            DisplayText(name + " >> " + server_message.Text);
+            date = DateTime.Now.ToString("yyyy.MM.dd. HH:mm:ss"); // 현재 날짜 받기
+
+            DisplayText("[ " + date + " ] " + name + " >> " + server_message.Text);
             SendMessageAll(name + " >> " + server_message.Text, server_name.Text, true);
             server_message.Clear();
+        }
+
+        private void Server_message_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)13)  //엔터 키를 누를 때
+            {
+                date = DateTime.Now.ToString("yyyy.MM.dd. HH:mm:ss"); // 현재 날짜 받기
+
+                DisplayText("[ " + date + " ] " + name + " >> " + server_message.Text);
+                SendMessageAll(name + " >> " + server_message.Text, server_name.Text, true);
+                server_message.Clear();
+            }
         }
 
         private void Stop_Click(object sender, EventArgs e)
@@ -180,16 +199,6 @@ namespace m3501
                 SendMessageAll(name + "님의 이름이 " + server_name.Text + "으로 변경되었습니다.", server_name.Text, false);
                 DisplayText(name + "님의 이름이 " + server_name.Text + "으로 변경되었습니다.");
                 name = server_name.Text;
-            }
-        }
-
-        private void Server_message_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)13)  //엔터 키를 누를 때
-            {
-                DisplayText(name + " >> " + server_message.Text);
-                SendMessageAll(name + " >> " + server_message.Text, server_name.Text, true);
-                server_message.Clear();
             }
         }
     }
