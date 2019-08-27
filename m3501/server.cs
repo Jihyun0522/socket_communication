@@ -17,8 +17,7 @@ namespace m3501
         TcpListener tcp = null; // 서버
         TcpClient tcpClient = null; // socket
         static int counter = 0; // 접속한 사용자 수
-        string date; // 날짜
-        string name;
+        string name = "server";
         public Dictionary<TcpClient, string> clientList = new Dictionary<TcpClient, string>(); // 각 client마다 리스트 추가
 
         public server()
@@ -33,7 +32,6 @@ namespace m3501
             t.IsBackground = true;
             t.Start();
             server_name.Text = "server";
-            name = "server";
         }
 
         private void InitSocket()
@@ -97,7 +95,7 @@ namespace m3501
             }
             else
             {
-                string displayMessage = "From client - " + userName + " : " + message;
+                string displayMessage = /*"From client - " + userName + " : " + */message;
                 DisplayText(displayMessage); // server 메세지 화면에 출력
                 SendMessageAll(message, userName, true); // 모든 client에게 전송
 
@@ -108,7 +106,6 @@ namespace m3501
         {
             foreach (var pair in clientList)
             {
-                date = DateTime.Now.ToString("yyyy.MM.dd HH:mm:ss"); // 현재 날짜
                 TcpClient client = pair.Key as TcpClient;
                 NetworkStream stream = client.GetStream();
                 byte[] buffer = null;
@@ -118,7 +115,7 @@ namespace m3501
                     if (message.Equals("leave Chat"))
                         buffer = Encoding.UTF8.GetBytes(userName + "님이 대화방을 나갔습니다.");
                     else
-                        buffer = Encoding.UTF8.GetBytes("[" + date + "]" + userName + " : " + message);
+                        buffer = Encoding.UTF8.GetBytes(message);
                 }
                 else
                 {
@@ -147,8 +144,8 @@ namespace m3501
 
         private void Server_send_Click(object sender, EventArgs e)
         {
-            DisplayText(server_name.Text + ">> " + server_message.Text);
-            SendMessageAll(server_message.Text, server_name.Text, true);
+            DisplayText(name + " >> " + server_message.Text);
+            SendMessageAll(name + " >> " + server_message.Text, server_name.Text, true);
             server_message.Clear();
         }
 
@@ -190,8 +187,8 @@ namespace m3501
         {
             if (e.KeyChar == (char)13)  //엔터 키를 누를 때
             {
-                DisplayText(server_name.Text + ">> " + server_message.Text);
-                SendMessageAll(server_message.Text, server_name.Text, true);
+                DisplayText(name + " >> " + server_message.Text);
+                SendMessageAll(name + " >> " + server_message.Text, server_name.Text, true);
                 server_message.Clear();
             }
         }

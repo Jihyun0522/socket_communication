@@ -62,7 +62,7 @@ namespace m3501
         private void Client_send_Click(object sender, EventArgs e) // message 보내기
         {
             client_message.Focus();
-            byte[] buffer = Encoding.UTF8.GetBytes(client_message.Text + "$");
+            byte[] buffer = Encoding.UTF8.GetBytes(name + " >> " + client_message.Text + "$");
             stream.Write(buffer, 0, buffer.Length);
             stream.Flush();
             client_message.Clear();
@@ -73,7 +73,7 @@ namespace m3501
             if (e.KeyChar == (char)13)  //엔터 키를 누를 때
             {
                 client_message.Focus();
-                byte[] buffer = Encoding.UTF8.GetBytes(client_message.Text + "$");
+                byte[] buffer = Encoding.UTF8.GetBytes(name + " >> " + client_message.Text + "$");
                 stream.Write(buffer, 0, buffer.Length);
                 stream.Flush();
                 client_message.Clear();
@@ -94,7 +94,7 @@ namespace m3501
             }
         }
 
-        private void DisplayText(string text) // server에 message 출력
+        private void DisplayText(string text) // client에 message 출력
         {
             if (client_messageBox.InvokeRequired)
             {
@@ -138,7 +138,9 @@ namespace m3501
         {
             if (client_name.Text != null)
             {
-                DisplayText(name + "님의 이름이 " + client_name.Text + "으로 변경되었습니다.");
+                byte[] buffer = Encoding.UTF8.GetBytes(name + "님의 이름이 " + client_name.Text + "으로 변경되었습니다." + "$");
+                stream.Write(buffer, 0, buffer.Length);
+                stream.Flush(); 
                 name = client_name.Text;
             }
         }
@@ -147,7 +149,9 @@ namespace m3501
         {
             if (e.KeyChar == (char)13)  //엔터 키를 누를 때
             {
-                DisplayText(name + "님의 이름이 " + client_name.Text + "으로 변경되었습니다.");
+                byte[] buffer = Encoding.UTF8.GetBytes(name + "님의 이름이 " + client_name.Text + "으로 변경되었습니다." + "$");
+                stream.Write(buffer, 0, buffer.Length);
+                stream.Flush();
                 name = client_name.Text;
             }
         }

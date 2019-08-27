@@ -64,7 +64,7 @@
             this.client_message.Font = new System.Drawing.Font("나눔바른고딕", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.client_message.Location = new System.Drawing.Point(12, 752);
             this.client_message.Name = "client_message";
-            this.client_message.Size = new System.Drawing.Size(335, 25);
+            this.client_message.Size = new System.Drawing.Size(335, 29);
             this.client_message.TabIndex = 13;
             this.client_message.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Client_message_KeyPress);
             // 
@@ -76,6 +76,7 @@
             this.client_messageBox.Multiline = true;
             this.client_messageBox.Name = "client_messageBox";
             this.client_messageBox.ReadOnly = true;
+            this.client_messageBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.client_messageBox.Size = new System.Drawing.Size(423, 346);
             this.client_messageBox.TabIndex = 11;
             // 
@@ -100,7 +101,7 @@
             this.client_myIp.Location = new System.Drawing.Point(93, 37);
             this.client_myIp.Name = "client_myIp";
             this.client_myIp.ReadOnly = true;
-            this.client_myIp.Size = new System.Drawing.Size(288, 26);
+            this.client_myIp.Size = new System.Drawing.Size(288, 30);
             this.client_myIp.TabIndex = 5;
             // 
             // label3
@@ -109,7 +110,7 @@
             this.label3.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label3.Location = new System.Drawing.Point(35, 40);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 19);
+            this.label3.Size = new System.Drawing.Size(49, 23);
             this.label3.TabIndex = 4;
             this.label3.Text = "내 IP";
             // 
@@ -129,7 +130,7 @@
             this.client_name.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.client_name.Location = new System.Drawing.Point(93, 89);
             this.client_name.Name = "client_name";
-            this.client_name.Size = new System.Drawing.Size(228, 26);
+            this.client_name.Size = new System.Drawing.Size(228, 30);
             this.client_name.TabIndex = 1;
             this.client_name.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Client_name_KeyPress);
             // 
@@ -139,7 +140,7 @@
             this.label4.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label4.Location = new System.Drawing.Point(38, 92);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(37, 19);
+            this.label4.Size = new System.Drawing.Size(46, 23);
             this.label4.TabIndex = 0;
             this.label4.Text = "이름";
             // 
@@ -184,7 +185,7 @@
             this.client_port.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.client_port.Location = new System.Drawing.Point(104, 80);
             this.client_port.Name = "client_port";
-            this.client_port.Size = new System.Drawing.Size(288, 26);
+            this.client_port.Size = new System.Drawing.Size(288, 30);
             this.client_port.TabIndex = 3;
             this.client_port.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Client_port_KeyPress);
             // 
@@ -194,7 +195,7 @@
             this.label2.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label2.Location = new System.Drawing.Point(25, 88);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 19);
+            this.label2.Size = new System.Drawing.Size(60, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "PORT";
             // 
@@ -203,7 +204,7 @@
             this.client_ip.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.client_ip.Location = new System.Drawing.Point(104, 37);
             this.client_ip.Name = "client_ip";
-            this.client_ip.Size = new System.Drawing.Size(288, 26);
+            this.client_ip.Size = new System.Drawing.Size(288, 30);
             this.client_ip.TabIndex = 1;
             // 
             // label1
@@ -212,13 +213,13 @@
             this.label1.Font = new System.Drawing.Font("나눔바른고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
             this.label1.Location = new System.Drawing.Point(53, 41);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(22, 19);
+            this.label1.Size = new System.Drawing.Size(27, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "IP";
             // 
             // client
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(447, 795);
             this.Controls.Add(this.client_send);
